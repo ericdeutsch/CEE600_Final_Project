@@ -1,9 +1,12 @@
+
+
 The following link is the GEE code for processing and downloading the
 resulting imagery to your Google Drive.  From there, you can manually
 download the imagery to a desired location. GEE does not allow direct 
-download to local storage devices.
+download to local storage devices.  Additionally, because imagery is 
+downloaded directly to Google Drive, it cannot be retrieved use -wget.
 
-https://code.earthengine.google.com/0c70caccc17560c4188ac456787d853c
+https://code.earthengine.google.com/d7651c12e9d0c4ba019f7f542886d17e
 
 Prior to running the code, you must also download the asset (study area
 polygon, link below) using the following link.  Afterwards, import it into the code
@@ -11,3 +14,5 @@ in the Assets tab on the right side of the GUI. It will appear at the top
 of the coding environment.  Rename this asset to "trimmedROI".
 
 https://code.earthengine.google.com/?asset=users/edeutsch/ROI_Extra_Trimmed
+
+The comments within the code body will adequately outline the methodology used.
