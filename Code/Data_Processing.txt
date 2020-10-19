@@ -6,7 +6,7 @@ download to local storage devices.
 https://code.earthengine.google.com/0c70caccc17560c4188ac456787d853c
 
 Prior to running the code, you must also download the asset (study area
-polygon) using the following link.  Afterwards, import it into the code
+polygon, link below) using the following link.  Afterwards, import it into the code
 in the Assets tab on the right side of the GUI. It will appear at the top
 of the coding environment.  Rename this asset to "trimmedROI".
 
