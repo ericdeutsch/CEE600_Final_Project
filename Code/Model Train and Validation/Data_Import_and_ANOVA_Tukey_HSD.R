@@ -15,26 +15,27 @@ library(multcompView)
 temp = list.files(pattern="*.csv")
 myfiles = lapply(temp, read.csv)
 
+#Change Column name from EVI to dB
+names(myfiles)[names(myfiles) == 'EVI'] <- 'dB'
+
+
 #uncount data. (original c1 ->c3 = frequency, value, variable)
 #              (now c1, c2 = value, variable)
 new_files <- lapply(myfiles, function(x) {
-  names(x) <- c("EVI", "Frequency", "Transition")
+  names(x) <- c("dB", "Frequency", "Transition")
   tidyr::uncount(x, Frequency)
 })
 
 #take the list of histogram and concatenate them
 data_c <- do.call("rbind", new_files)
-head(data_c)
-
 
 #remove unneeded data for RAM conservation
 rm(myfiles, new_files)
 
 #Conduct ANOVA and subsequent Tukey Test
-data_c$EVI<-as.numeric(data_c$EVI)
+data_c$EVI<-as.numeric(data_c$dB)
 aov_m1<-aov(EVI~Transition, data=data_c)
 (TUKEY<-TukeyHSD(aov_m1, "Transition"))
-plot(TUKEY)
 
 #Generate letters to indicate distinct value distributions
 exp_letters1 <- multcompLetters(TUKEY$Transition[,4])
